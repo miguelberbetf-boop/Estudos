@@ -41,3 +41,19 @@ Poupanca.render_juros(0.10)
 
 print('-'*32)
 Poupanca.ver_saldo()
+
+print('='*32)
+contas = []
+for i in range(3):
+    nome = input('Nome: ')
+    saldo = int(input('Saldo'))
+    conta = ContaBancaria(nome, saldo)
+    contas.append(conta)
+
+for conta in contas:
+    conta.titular
+
+
+for conta in conta:
+    print(conta.titular)
+    print(conta)
