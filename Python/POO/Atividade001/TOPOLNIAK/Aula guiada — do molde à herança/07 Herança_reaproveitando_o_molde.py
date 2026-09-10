@@ -46,7 +46,7 @@ print('='*32)
 contas = []
 for i in range(3):
     nome = input('Nome: ')
-    saldo = int(input('Saldo'))
+    saldo = int(input('Saldo: '))
     conta = ContaBancaria(nome, saldo)
     contas.append(conta)
 
