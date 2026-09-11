@@ -1,43 +1,48 @@
 import time
 
 class spotify:
-    def __init__(self, titulo, artista, duracao, curtidas):
+    def __init__(self, titulo, artista, duracao):
         self.titulo = titulo
         self.artista = artista
         self.duracao = duracao
-        self.duracao = curtidas
         self.curtida = 0
 
-
     def tocar(self):
-
         while self.duracao >= 0:
             print(f'{self.duracao:.2f}')
-
             self.duracao -= 0.01
-
             self.duracao = round(self.duracao, 2)
-
             time.sleep(1)
 
-
     def curtir(self):
-        self.curtidas +=1
-       
-
+        print(f'{self.titulo} curtida')
+        self.curtida += 1
 
     def descurtir(self):
-        if self.titulo == 0:
-            print('não há curtida nessa musica')
+        if self.curtida == 0:
+            print('Não há curtidas nessa música')
         else:
-            self.curtida -=1
-            print('musica descurtida')
-
+            self.curtida -= 1
+            print('Música descurtida')
 
     def mostrar(self):
-        print(f'{self.titulo} {self.artista} {self.duracao} {self.curtidas}')
+        print(f'{self.titulo} - {self.artista} | Curtidas: {self.curtida}')
 
 
+class Playlist(spotify):
+    def criar_playlist(self):
+        praylist = []
+        for i in range(5):  # Diminui para 2 para testar mais rápido, mude para 5 se quiser
+            titulo = input('Nome da música: ')
+            artista = input('Artista: ')
+            tempo = float(input('Duração em minutos: '))
+            listadeplay = spotify(titulo, artista, tempo)
+            praylist.append(listadeplay)
 
-Wellcome_to_the_family = spotify('Wellcome_to_the_family', 'Avenged sevenfold', 12800000, 4.05, )
-Wellcome_to_the_family.tocar()
+        for dopamina in praylist:
+            print(f"Música: {dopamina.titulo} - Artista: {dopamina.artista}")
+            print(dopamina)
+
+# Testando a criação da playlist
+minha_playlist = Playlist("", "", 0)
+minha_playlist.criar_playlist()
