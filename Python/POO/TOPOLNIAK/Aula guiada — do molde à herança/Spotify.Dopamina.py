@@ -29,20 +29,25 @@ class spotify:
         print(f'{self.titulo} - {self.artista} | Curtidas: {self.curtida}')
 
 
+
+
 class Playlist(spotify):
     def criar_playlist(self):
         praylist = []
-        for i in range(5):  # Diminui para 2 para testar mais rápido, mude para 5 se quiser
+        for i in range(1):  # Diminui para 2 para testar mais rápido, mude para 5 se quiser
             titulo = input('Nome da música: ')
             artista = input('Artista: ')
-            tempo = float(input('Duração em minutos: '))
-            listadeplay = spotify(titulo, artista, tempo)
+            duracao = float(input('Duração em minutos: '))
+            listadeplay = spotify(titulo, artista, duracao)
             praylist.append(listadeplay)
 
         for dopamina in praylist:
-            print(f"Música: {dopamina.titulo} - Artista: {dopamina.artista}")
-            print(dopamina)
+            print(f"Música: {dopamina.titulo} - Artista: {dopamina.artista} duração: {dopamina.duracao} minutos")
+            
 
 # Testando a criação da playlist
-minha_playlist = Playlist("", "", 0)
+minha_playlist = Playlist("", "", 0,)
 minha_playlist.criar_playlist()
+
+
+print(f'{Playlist.__dict__}\n')
